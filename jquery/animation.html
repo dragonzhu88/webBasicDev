@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动画</title>
+    <script src="jquery-3.1.0.min.js"></script>
+    <script src="animation.js"></script>
+    <link type="text/css" rel="stylesheet" href="style.css">
+</head>
+<body>
+    <p id="p1">隐藏</p>
+    <button id="hide">隐藏</button>
+    <p id="p2">隐藏</p>
+    <button id="show">隐藏</button>
+    <button id="toggle">隐藏</button>
+
+
+    <script>
+        for(var i=0;i<5;i++){
+            $("<div>").appendTo(document.body);
+        }
+        $("div").click(function () {
+            $(this).toggle(1000);
+        })
+    </script>
+
+</body>
+</html>
+
