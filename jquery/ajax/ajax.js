@@ -3,40 +3,37 @@
  */
 $(document).ready(function () {
 
-    // $("body").load("box.htm", function (a, status, c) {
-    //     console.log(status);
-    //     if (status == "error") {
-    //         $("body").text('error');
-    //     }
-    // });
-
-    // $.getScript("hello.js").complete(function () {
-    //     alert(1);
-    //     sayHello();
-    // });
-    $("#btn").on("click",ajax_click);
-
+    $("#btn").on("click", ajax_click);
 
 });
 
 function ajax_click() {
 
-    // alert(1);
-
     var name = "zdc";
     var url_addr = 'http://zdc.test.dd/webBasicDev/jquery/ajax/server.php';
+
+    var person = {};
+    person.name = name;
+    person.url = url_addr;
+   // var obj = JSON.stringify(person);
+
+    var obj_data;
     $.ajax({
         url: url_addr,// 跳转到 action
         data: {
+            obj: person,
             name: name,
-            url:url_addr
+            url: url_addr
         },
         type: 'post',
         cache: false,
-       // dataType: 'json',
+        dataType: 'json',
         success: function (data) {
-            alert("修改成功！");
 
+            // obj_data = JSON.parse(data);
+            obj_data = data;
+            console.log(obj_data);
+            $("#p1").text(obj_data.name);
         },
         error: function () {
             alert("异常！");
